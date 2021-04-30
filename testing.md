@@ -1,0 +1,3 @@
+I have asked my brother to go through the web page
+Initially being on the web page for couple of minutes my brother suggested me to mention some text or instructions that helps the user to easily navigate through all the features of the web page
+Therefore, I have added those necessary changes to my web page and made it a bit user friendly. So that the user won't get lost on how to operate the web page.
