@@ -31,6 +31,9 @@
       .screen {
         display: none;
       }
+      .hide{
+        display: none;
+      }
 
       .margin-adjust{
         margin-left: 8px;
@@ -233,13 +236,15 @@
         <div class="mdc-button__ripple"></div>
         <span class="mdc-button__label">Submit</span>
     </button>
+
+    
       
     <!-- <button type="button" onclick="priceCheck()">
         Submit
     </button> -->
       
     <br>
-    <div id="info"> anurag
+    <div id="info" class="hide"> anurag
 
       <p id="price"> </p>     
        <p id="model"> </p>   
@@ -248,6 +253,14 @@
           <p id="reliable"> </p>   
       
    </div>
+
+   <br>
+    <br>
+    <div class="mdc-snackbar">
+      <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+        <div class="mdc-snackbar__label" aria-atomic="false"> Value </div>
+      </div>
+    </div>
 
 
       </div>
@@ -344,7 +357,7 @@
       
 
       </div>
-      <div id="About-me" class="screen">
+      <div id="About-me" class="screen margin-adjust">
         <h1> welcome to about section </h1>  
       </div>
 
@@ -586,7 +599,7 @@
       
 
     <script >
-
+let snack_bar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector(".mdc-snackbar"));
         //
           // Define your database
           //
@@ -956,9 +969,13 @@
             
             });
 
-            console.log("chosen car: " + chosenCar);
+            // console.log("chosen car: " + chosenCar);
 
+             let display_text = "We suggest you to buy: " + chosenCar;
 
+          snack_bar.labelText = display_text;
+
+          snack_bar.open();
          
       }
 
