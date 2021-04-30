@@ -751,9 +751,11 @@ let snack_bar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector(".mdc-s
           delMark.setMap(null);
         }
 
-         let fetchUrl = "https://data.cityofchicago.org/resource/85ca-t3if.json"+"?crash_hour=" + crashHour + "&crash_day_of_week=" + crashDay + "&crash_month=" + crashMonth + "&$LIMIT=10";
+         let fetchUrl = "https://data.cityofchicago.org/resource/85ca-t3if.json"+"?crash_hour=" + crashHour + "&crash_day_of_week=" + crashDay + "&crash_month=" + crashMonth + "&$LIMIT=20";
 
          console.log(fetchUrl)
+
+        
 
          fetch(fetchUrl)
         .then((response) => {
@@ -764,12 +766,14 @@ let snack_bar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector(".mdc-s
           data.forEach( (crash) => {
             let marker = new google.maps.Marker({
               position: {lat: parseFloat(crash.latitude), lng: parseFloat(crash.longitude) },
+              
               map: map
             });
             markersList.push(marker);
 
+           let printContent = "The accident happened on " + crash.street_name + "and " + crash.crash_type + " were reported" ;
              let infoWindow = new google.maps.InfoWindow({
-              content: "ANURAG",
+              content: printContent,
               maxWidth: 210
             });
             
